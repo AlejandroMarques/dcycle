@@ -31,7 +31,6 @@ const LineChart = ({ data }) => {
   const cases = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.cases.total.value);
   const tests = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.testing.total.value);
   const deaths = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.outcomes.death.total.value);
-  console.log(startDate, endDate, dates)
   const chartData = {
     labels: dates,
     datasets: [
