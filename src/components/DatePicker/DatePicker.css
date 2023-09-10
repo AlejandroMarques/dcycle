@@ -1,0 +1,37 @@
+/* Estilos para el contenedor principal del componente */
+.date-range-picker {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.date-range-picker h2 {
+  margin: 0;
+}
+
+/* Estilos para las etiquetas de fecha */
+.date-picker label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Estilos para los campos de entrada de fecha */
+.date-picker input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none;
+  background-color: rgba(62, 59, 68, 0.7);
+  color: white;
+}
+
+.date-picker input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}

@@ -1,0 +1,143 @@
+.resize-fit-center {
+  width: auto;
+  max-height: 36px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+nav a {
+  color:black;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0px;
+  width: -webkit-fill-available;
+  background: rgba(237, 237, 247, 1);
+  z-index: 10;
+}
+
+nav a:hover::after, nav #active::after{
+  content: "";
+  width: 70%;
+  height: 2px;
+  background: var(--detail-color);
+  bottom: -4px;
+  left: 20px;
+  display: block;
+}
+
+.nav-close-btn {
+  display: none;
+}
+
+.nav-close-btn:hover {
+  color: var(--detail-color);
+}
+
+.nav-btn:hover {
+  color: var(--detail-color);
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: black;
+  display: none;
+  opacity: 0;
+  font-size: 1.5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.5rem;
+  list-style: none;
+}
+.submenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+  align-items: flex-end;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+}
+
+.submenu ul {
+  margin: 0;
+  padding: 7px 20px;
+}
+
+.submenu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 625px) {
+  header .nav-btn {
+    display: block;
+    opacity: 1;
+  }
+
+  header {
+    position: fixed;
+    top: 0px;
+    width: -webkit-fill-available;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    min-width: fit-content;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #292929;
+    transition: 1s;
+    transform: translateX(-100vh);
+    flex-direction: column;
+    z-index: 2;
+    margin: 0;
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    display: block;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 22px 48px;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    color:white;
+  }
+}
