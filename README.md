@@ -1,12 +1,12 @@
 # Solución para el Proyecto de Prueba Técnica
 
-Este repositorio contiene la solución para los ejercicios del proyecto de prueba técnica para DClycle. El proyecto está desarrollado en ReactJS y consta de dos ejercicios que involucran la interacción con un backend de Node.js y la visualización de datos relacionados con el género, nacionalidades, edades y estadísticas del COVID-19 en Estados Unidos.
+Este repositorio contiene la solución para los ejercicios del proyecto de prueba técnica para DCycle. El proyecto está desarrollado en ReactJS y consta de dos ejercicios que involucran la interacción con un backend de Node.js y la visualización de datos relacionados con el género, nacionalidades, edades y estadísticas del COVID-19 en Estados Unidos.
 
 ## Configuración del Proyecto
 
-1. **Clonar el Repositorio del Backend**:
+1. **Clonar el Repositorio**:
    ```shell
-   git clone git clone https://github.com/Dacuna97/test-backend-app.git
+   git clone git clone https://github.com/AlejandroMarques/dcycle.git
    ```
 2. **Instalar Dependencias**:
    ```shell
