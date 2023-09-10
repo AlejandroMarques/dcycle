@@ -12,7 +12,7 @@ import {
   Legend,
   Filler,
 } from "chart.js";
-import { useExercise2Context } from '../../Contexts/Exercise2Provider';
+import { useExercise2Context } from "../../Contexts/Exercise2Provider";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,34 +25,13 @@ ChartJS.register(
 );
 const LineChart = ({ data }) => {
   const { startDate, endDate, dateInRange } = useExercise2Context();
-  // Extraer fechas, casos, muertes, hospitalizaciones y pruebas
-  const dates = data
-    .map((dayData) => {if(dateInRange((dayData.date))) return new Date(dayData.date).toLocaleString().split(",")[0]})
-    .sort(({ date: a }, { date: b }) => (a < b ? -1 : a > b ? 1 : 0));
-  const hospitalizations = data.map(
-    (dayData) =>{if(dateInRange(dayData.date)) return dayData.outcomes.hospitalized.currently.value}
-  );
-  const cases = data.map(
-    (dayData) => {if(dateInRange(dayData.date)) return dayData.cases.total.value/10}
-  );
-  const tests = data.map(
-    (dayData) => {if(dateInRange(dayData.date)) return dayData.testing.total.value/100}
-  );
-  const deaths = data.map((dayData) => {if(dateInRange(dayData.date)) return dayData.outcomes.death.total.value});
-  console.log(data)
-  function convertDateFormat(inputDate) {
-    const dateParts = inputDate.split('-');
-    if (dateParts.length === 3) {
-      const year = dateParts[0];
-      const month = dateParts[1];
-      const day = dateParts[2];
-      return `${day}/${month}/${year}`;
-    } else {
-      return 'Fecha inválida';
-    }
-  }
-  
-  // Configuración de los datos del gráfico
+
+  const dates = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => new Date(dayData.date).toLocaleString().split(",")[0]);
+  const hospitalizations = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.outcomes.hospitalized.currently.value);
+  const cases = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.cases.total.value);
+  const tests = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.testing.total.value);
+  const deaths = data.filter((dayData) => dateInRange(dayData.date)).map((dayData) => dayData.outcomes.death.total.value);
+  console.log(startDate, endDate, dates)
   const chartData = {
     labels: dates,
     datasets: [
@@ -76,39 +55,39 @@ const LineChart = ({ data }) => {
         borderColor: "rgba(0, 0, 0, 1)",
         data: deaths,
       },
-    ]
+    ],
   };
 
   const chartOptions = {
     responsive: true,
+    maintainAspectRatio: true,
     maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
       },
       legend: {
-        labels:{
+        labels: {
           font: {
-            size:14
+            size: 14,
           },
         },
         onHover: (event) => {
-          event.native.target.style.cursor = 'pointer';
-        }
+          event.native.target.style.cursor = "pointer";
+        },
       },
     },
-    radius:"0",
-    scales: {
-      x: {
-        min: (startDate),
-        max: (endDate),
-      },
-    }
+    radius: "0",
   };
-
   return (
-    <div className="chart-style" style={{ width: "80vw", margin: "0 auto" }}>
-      <Line data={chartData} options={chartOptions} style={{ width: "100vw", height: "800px" }} />
+    <div
+      className="chart-style"
+      style={{ width: "80vw", margin: "0 auto" }}>
+      <Line
+        data={chartData}
+        options={chartOptions}
+        style={{ width: "100vw", height: "800px" }}
+      />
     </div>
   );
 };

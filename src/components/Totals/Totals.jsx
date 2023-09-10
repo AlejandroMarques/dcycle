@@ -19,7 +19,7 @@ const Totals = ({data}) => {
     };
 
     data.forEach((item) => {
-      if (!dateInRange(item.date, startDate, endDate)) {
+      if (!dateInRange(item.date)) {
         return;
       }
       totals.inIcu += item.outcomes.hospitalized.in_icu.currently.value;
