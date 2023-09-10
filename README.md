@@ -1,6 +1,6 @@
 # Solución para el Proyecto de Prueba Técnica
 
-Este repositorio contiene la solución para los ejercicios del proyecto de prueba técnica para DCycle. El proyecto está desarrollado en ReactJS y consta de dos ejercicios que involucran la interacción con un backend de Node.js y la visualización de datos relacionados con el género, nacionalidades, edades y estadísticas del COVID-19 en Estados Unidos.
+Este repositorio contiene la solución para los ejercicios del proyecto de prueba técnica para Dcycle. El proyecto está desarrollado en ReactJS y consta de dos ejercicios que involucran la interacción con un backend de Node.js y la visualización de datos relacionados con el género, nacionalidades, edades y estadísticas del COVID-19 en Estados Unidos.
 
 ## Configuración del Proyecto
 
